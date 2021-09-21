@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Report } from 'src/app/Models/Report';
 import { ServiceService } from 'src/app/Service/service.service';
+
 
 @Component({
   selector: 'app-add',
@@ -12,7 +12,6 @@ import { ServiceService } from 'src/app/Service/service.service';
 export class AddComponent implements OnInit {
 
   myForm: FormGroup;
-  report: Report;
 
   constructor(private service: ServiceService, private router: Router, public fb: FormBuilder) {
     this.myForm = this.fb.group({
@@ -29,22 +28,47 @@ export class AddComponent implements OnInit {
   saveData(event: Event) {
     event.preventDefault();
     if (this.myForm.valid) {
-      console.log(this.myForm.value);
-      
       this.service.saveReport(this.myForm.value)
-      .subscribe(data => {
-        alert("Se agregó con Exito...!!!");
-        //this.route.navigate(["listar"]);
-      })     
-
+        .subscribe(data => {
+          alert("Se agregó con Exito...!!!");
+          this.router.navigate(["listar"]);
+        })
     } else {
       this.myForm.markAllAsTouched();
     }
-
-
-    
-    
   }
 
+  get idTecnicoField() {
+    return this.myForm.get('idTecnico');
+  }
 
+  get idServicioField() {
+    return this.myForm.get('idServicio');
+  }
+
+  get fechaInicioField() {
+    return this.myForm.get('fechaInicio');
+  }
+
+  get horaInicioField() {
+    return this.myForm.get('horaInicio');
+  }
+
+  get fechaFinField() {
+    return this.myForm.get('fechaFin');
+  }
+
+  get horaFinField() {
+    return this.myForm.get('horaFin');
+  }
+
+  error: any;
+
+  compareTwoDates() {
+    if (new Date(this.myForm.controls['fechaFin'].value) < new Date(this.myForm.controls['fechaInicio'].value)) {
+      this.error = { isError: true, errorMessage: 'Fecha inicio debe ser menor que fecha fin' };
+    } else {
+      this.error = { isError: false, errorMessage: '' };
+    }
+  }
 }

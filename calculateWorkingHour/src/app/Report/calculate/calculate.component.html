@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row row-cols-3">
+        <div class="card">
+            <div class="card-header">
+                <h3>Calcular Horas de Trabajo</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="myForms" (ngSubmit)="findData($event)" novalidate>
+                    <div class="form-group">
+                        <label for="">Id Tecnico</label>
+                        <input formControlName="idTecnico" type="text" placeholder="Insert idTecnico"
+                            class="form-control">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="idTecnicoField!.errors && idTecnicoField!.touched">
+                        Campo requerido
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">No. Semana del año</label>
+                        <input formControlName="numeroSemana" type="number" placeholder="Insert numeroSemana"
+                            class="form-control">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="numeroSemanaField!.errors && numeroSemanaField!.touched">
+                        Campo requerido
+                    </div>
+
+                    <button type="submit" class="btn btn-danger">Consultar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1">
+        <div class="card">
+            <div class="card-header">
+                <h3>Horas de Trabajo</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>HORA DIURNA</th>
+                            <th>HORA DIURNA EXTRA</th>
+                            <th>HORA NOCTURNA</th>
+                            <th>HORA NOCTURNA EXTRA</th>
+                            <th>HORA DOMINICAL</th>
+                            <th>HORA DOMINICAL EXTRA</th>
+                        </tr>
+                    </thead>
+                    <Tbody>
+                        <tr *ngFor="let workingHour of workingHours" class="text-center">
+                            <td>{{ workingHour.hourDiurnal }}</td>
+                            <td>{{ workingHour.hourDiurnalExtra }}</td>
+                            <td>{{ workingHour.hourNocturnal }}</td>
+                            <td>{{ workingHour.hourNocturnalExtra }}</td>
+                            <td>{{ workingHour.hourSunday}}</td>
+                            <td>{{ workingHour.hourSundayExtra}}</td>
+                        </tr>
+                    </Tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

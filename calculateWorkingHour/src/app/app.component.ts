@@ -12,11 +12,15 @@ export class AppComponent {
   constructor(private router:Router){
   }
 
-  Listar(){
-    this.router.navigate(["listar"]);
+  list(){
+    this.router.navigate(["list"]);
   }
 
-  Nuevo(){
+  add(){
     this.router.navigate(["add"]);
+  }
+
+  calculate(){
+    this.router.navigate(["calculate"]);
   }
 }

@@ -10,7 +10,7 @@ import { ServiceService } from 'src/app/Service/service.service';
 })
 export class EditComponent implements OnInit {
 
-  report:Report=new Report();
+  //report:Report=new Report();
   constructor(private router:Router, private service:ServiceService) { }
 
   ngOnInit(): void {

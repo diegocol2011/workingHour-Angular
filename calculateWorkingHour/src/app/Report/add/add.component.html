@@ -1,50 +1,49 @@
 <div class="container col-md-6">
     <div class="card">
         <div class="card-header">
-            <h3>Add Report</h3>
+            <h3>Agregar Reporte</h3>
         </div>
         <div class="card-body">
             <form [formGroup]="myForm" (ngSubmit)="saveData($event)" novalidate>
                 <div class="form-group">
-                    <label for="">Id Tecnico:</label>
+                    <label for="">Id Tecnico</label>
                     <input formControlName="idTecnico" type="text" placeholder="Insert idTecnico" class="form-control">
                 </div>
-                <div class="alert alert-danger"
-                    *ngIf="this.myForm.get('idTecnico')!.errors && this.myForm.get('idTecnico')!.touched">
+                <div class="alert alert-danger" *ngIf="idTecnicoField!.errors && idTecnicoField!.touched">
                     Campo requerido
                 </div>
 
                 <div class="form-group">
-                    <label for="">Id Servicio:</label>
+                    <label for="">Id Servicio</label>
                     <input formControlName="idServicio" type="text" placeholder="Insert idServicio"
                         class="form-control">
                 </div>
-                <div class="alert alert-danger"
-                    *ngIf="this.myForm.get('idServicio')!.errors && this.myForm.get('idServicio')!.touched">
+                <div class="alert alert-danger" *ngIf="idServicioField!.errors && idServicioField!.touched">
                     Campo requerido
                 </div>
 
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="">Fecha Inicio:</label>
+                            <label for="">Fecha Inicio</label>
                             <input formControlName="fechaInicio" type="date" placeholder="Insert fechaInicio"
-                                class="form-control">
+                                class="form-control" (blur)="compareTwoDates()">
                         </div>
-                        <div class="alert alert-danger"
-                            *ngIf="this.myForm.get('fechaInicio')!.errors && this.myForm.get('fechaInicio')!.touched">
+                        <div class="alert alert-danger" *ngIf="fechaInicioField!.errors && fechaInicioField!.touched">
                             Campo requerido
+                        </div>
+                        <div *ngIf="error.isError" class="alert alert-danger">
+                            {{ error.errorMessage }}
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="">Hora Inicio:</label>
+                            <label for="">Hora Inicio</label>
                             <input formControlName="horaInicio" type="time" placeholder="Insert horaInicio"
                                 class="form-control">
                         </div>
-                        <div class="alert alert-danger"
-                            *ngIf="this.myForm.get('horaInicio')!.errors && this.myForm.get('horaInicio')!.touched">
+                        <div class="alert alert-danger" *ngIf="horaInicioField!.errors && horaInicioField!.touched">
                             Campo requerido
                         </div>
                     </div>
@@ -53,29 +52,27 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="">Fecha Fin:</label>
+                            <label for="">Fecha Fin</label>
                             <input formControlName="fechaFin" type="date" placeholder="Insert fechaFin"
                                 class="form-control">
                         </div>
-                        <div class="alert alert-danger"
-                            *ngIf="this.myForm.get('fechaFin')!.errors && this.myForm.get('fechaFin')!.touched">
+                        <div class="alert alert-danger" *ngIf="fechaFinField!.errors && fechaFinField!.touched">
                             Campo requerido
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="">Hora Fin:</label>
+                            <label for="">Hora Fin</label>
                             <input formControlName="horaFin" type="time" placeholder="Insert horaFin"
                                 class="form-control">
                         </div>
-                        <div class="alert alert-danger"
-                            *ngIf="this.myForm.get('horaFin')!.errors && this.myForm.get('horaFin')!.touched">
+                        <div class="alert alert-danger" *ngIf="horaFinField!.errors && horaFinField!.touched">
                             Campo requerido
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-danger">Guardar</button>
+                <button type="submit" (click)="compareTwoDates()" class="btn btn-danger">Guardar</button>
             </form>
         </div>
     </div>
