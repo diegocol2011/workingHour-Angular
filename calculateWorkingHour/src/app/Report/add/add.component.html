@@ -1,0 +1,82 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Add Report</h3>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="myForm" (ngSubmit)="saveData($event)" novalidate>
+                <div class="form-group">
+                    <label for="">Id Tecnico:</label>
+                    <input formControlName="idTecnico" type="text" placeholder="Insert idTecnico" class="form-control">
+                </div>
+                <div class="alert alert-danger"
+                    *ngIf="this.myForm.get('idTecnico')!.errors && this.myForm.get('idTecnico')!.touched">
+                    Campo requerido
+                </div>
+
+                <div class="form-group">
+                    <label for="">Id Servicio:</label>
+                    <input formControlName="idServicio" type="text" placeholder="Insert idServicio"
+                        class="form-control">
+                </div>
+                <div class="alert alert-danger"
+                    *ngIf="this.myForm.get('idServicio')!.errors && this.myForm.get('idServicio')!.touched">
+                    Campo requerido
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">Fecha Inicio:</label>
+                            <input formControlName="fechaInicio" type="date" placeholder="Insert fechaInicio"
+                                class="form-control">
+                        </div>
+                        <div class="alert alert-danger"
+                            *ngIf="this.myForm.get('fechaInicio')!.errors && this.myForm.get('fechaInicio')!.touched">
+                            Campo requerido
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">Hora Inicio:</label>
+                            <input formControlName="horaInicio" type="time" placeholder="Insert horaInicio"
+                                class="form-control">
+                        </div>
+                        <div class="alert alert-danger"
+                            *ngIf="this.myForm.get('horaInicio')!.errors && this.myForm.get('horaInicio')!.touched">
+                            Campo requerido
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">Fecha Fin:</label>
+                            <input formControlName="fechaFin" type="date" placeholder="Insert fechaFin"
+                                class="form-control">
+                        </div>
+                        <div class="alert alert-danger"
+                            *ngIf="this.myForm.get('fechaFin')!.errors && this.myForm.get('fechaFin')!.touched">
+                            Campo requerido
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">Hora Fin:</label>
+                            <input formControlName="horaFin" type="time" placeholder="Insert horaFin"
+                                class="form-control">
+                        </div>
+                        <div class="alert alert-danger"
+                            *ngIf="this.myForm.get('horaFin')!.errors && this.myForm.get('horaFin')!.touched">
+                            Campo requerido
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

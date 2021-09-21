@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Report</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID TECNICO</th>
+                        <th>ID SERVICIO</th>
+                        <th>FECHA INICIO</th>
+                        <th>HORA INICIO</th>
+                        <th>FECHA FIN</th>
+                        <th>HORA FIN</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <Tbody>
+                    <tr *ngFor="let report of reports" class="text-center">
+                        <td>{{report.idTecnico}}</td>
+                        <td>{{report.idServicio}}</td>
+                        <td>{{report.fechaInicio}}</td>
+                        <td>{{report.horaInicio}}</td>
+                        <td>{{report.fechaFin}}</td>
+                        <td>{{report.horaFin}}</td>
+                        <td>
+                            <button (click)="Editar(report)" class="btn btn-warning">Editar</button>
+                            <button (click)="Eliminar(report)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+                        </td>
+                    </tr>
+                </Tbody>
+            </table>
+        </div>
+    </div>
+</div>
