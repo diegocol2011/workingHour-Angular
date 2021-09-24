@@ -31,7 +31,7 @@ export class AddComponent implements OnInit {
       this.service.saveReport(this.myForm.value)
         .subscribe(data => {
           alert("Se agregó con Exito...!!!");
-          this.router.navigate(["listar"]);
+          this.router.navigate(["list"]);
         })
     } else {
       this.myForm.markAllAsTouched();
