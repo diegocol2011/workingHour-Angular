@@ -1,4 +1,5 @@
-export interface Report{
+export class Report{
+    idReporte   : number;
     idTecnico   : String;
     idServicio  : String;
     fechaInicio : String;

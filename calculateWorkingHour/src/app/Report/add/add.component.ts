@@ -62,7 +62,7 @@ export class AddComponent implements OnInit {
     return this.myForm.get('horaFin');
   }
 
-  error: any;
+  error: any= { isError: false, errorMessage: '' };
 
   compareTwoDates() {
     if (new Date(this.myForm.controls['fechaFin'].value) < new Date(this.myForm.controls['fechaInicio'].value)) {

@@ -14,23 +14,22 @@ export class ListarComponent implements OnInit {
   constructor(private service:ServiceService, private router:Router) { }
 
   ngOnInit(): void {
+    this.FindAllReports();
+  }
+
+  FindAllReports(){
     this.service.getReports()
     .subscribe(data=>{
       this.reports=data;
-    })
+    })  
   }
-
-  Editar(report:Report):void{
-    // localStorage.setItem("id",report.id.toString());
-    // this.router.navigate(["edit"]);
-  }
-
+  
   Eliminar(report:Report){
-    // this.service.deletereport(report)
-    //   .subscribe(data=>{
-    //     this.reports=this.reports.filter(p=>p!=report);
-    //     alert("Usuario Eliminado");
-    //   })
+    this.service.deleteReport(report)
+      .subscribe(data=>{
+        this.reports=this.reports.filter(p=>p!=report);
+        alert("Usuario Eliminado");
+      })
 
   }
 

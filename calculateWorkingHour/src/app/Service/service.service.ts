@@ -12,23 +12,30 @@ export class ServiceService {
 
   Url = 'http://localhost:8080/api';
 
+  getReportById(id: number) {
+    return this.http.get<Report>(this.Url + "/find/" + id);
+  }
+
   getReports() {
     return this.http.get<Report[]>(this.Url + "/find");
   }
 
-  saveReport(Report: Report) {
-    return this.http.post<Report>(this.Url + "/guardar", Report);
+  saveReport(report: Report) {
+    return this.http.post<Report>(this.Url + "/save", report);
   }
 
   getWorkingHour(idTecnico: string, numeroSemana: number) {
-    return this.http.get<WorkingHourDto>(this.Url +"/find/"+ idTecnico +"/"+ numeroSemana);
+    return this.http.get<WorkingHourDto>(this.Url + "/find/" + idTecnico + "/" + numeroSemana);
   }
 
-  // updateReport(Report:Report){
-  //   return this.http.put<Report>(this.Url+"/"+Report.id,Report);
-  // }
+  updateReport(Report: Report) {
+    return this.http.put<Report>(this.Url + "/update", Report);
+  }
 
-  // deleteReport(Report:Report){
-  //   return this.http.delete<Report>(this.Url+"/"+Report.id);
-  // }
+  deleteReport(report: Report) {
+    return this.http.request('DELETE', this.Url + "/delete", { body: report })
+  }
+
+
+
 }

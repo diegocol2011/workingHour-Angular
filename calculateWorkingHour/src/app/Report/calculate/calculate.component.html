@@ -18,10 +18,13 @@
                     <div class="form-group">
                         <label for="">No. Semana del año</label>
                         <input formControlName="numeroSemana" type="number" placeholder="Insert numeroSemana"
-                            class="form-control">
+                            class="form-control" min="1" max="52">
                     </div>
-                    <div class="alert alert-danger" *ngIf="numeroSemanaField!.errors && numeroSemanaField!.touched">
+                    <div class="alert alert-danger" *ngIf="numeroSemanaField!.errors?.required && numeroSemanaField!.touched">
                         Campo requerido
+                    </div>
+                    <div class="alert alert-danger" *ngIf="numeroSemanaField!.errors?.pattern">
+                        Digitar del 1 al 52
                     </div>
 
                     <button type="submit" class="btn btn-danger">Consultar</button>
@@ -50,7 +53,7 @@
                         </tr>
                     </thead>
                     <Tbody>
-                        <tr *ngFor="let workingHour of workingHours" class="text-center">
+                        <tr class="text-center">
                             <td>{{ workingHour.hourDiurnal }}</td>
                             <td>{{ workingHour.hourDiurnalExtra }}</td>
                             <td>{{ workingHour.hourNocturnal }}</td>

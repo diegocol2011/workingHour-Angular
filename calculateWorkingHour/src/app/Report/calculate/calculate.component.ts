@@ -12,13 +12,12 @@ import { WorkingHourDto } from '../../Models/WorkingHourDto';
 export class CalculateComponent implements OnInit {
 
   myForms: FormGroup;
-  workingHours: WorkingHourDto[];
-  workingHour: WorkingHourDto;
+  workingHour= new WorkingHourDto;
     
   constructor(private service: ServiceService, private router: Router, public fb: FormBuilder) {
     this.myForms = this.fb.group({
       idTecnico: ['', [Validators.required]],
-      numeroSemana: ['', [Validators.required]],
+      numeroSemana: ['', [Validators.required, Validators.pattern('^(0?[1-9]|[1-4][0-9]|[5][0-2])$')]],
     });
   }
   ngOnInit() { }
@@ -27,10 +26,7 @@ export class CalculateComponent implements OnInit {
     event.preventDefault();
     if (this.myForms.valid) {
       this.service.getWorkingHour(this.myForms.controls['idTecnico'].value, this.myForms.controls['numeroSemana'].value)
-        .subscribe(data => {
-          this.workingHour=data;
-        })
-      this.workingHours[0]= this.workingHour;  
+        .subscribe(data => { this.workingHour=data; })
     } else {
       this.myForms.markAllAsTouched();
     }
@@ -43,6 +39,4 @@ export class CalculateComponent implements OnInit {
   get numeroSemanaField() {
     return this.myForms.get('numeroSemana');
   }
-
-
 }
