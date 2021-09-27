@@ -18,14 +18,14 @@ describe('AddComponent', () => {
         FormsModule,
         ReactiveFormsModule
       ],
-      declarations: [ 
+      declarations: [
         AddComponent
       ],
       providers: [
         ServiceService
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -35,6 +35,21 @@ describe('AddComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeTruthy;
   });
+
+  describe('[Form validations]', () => {
+    describe('Control "idTecnico"', () => {
+      it('Control with empty value', () => {
+        const idTecnicoControl = component.myForm.get('idTecnico');
+        const emptyValue = '';
+        idTecnicoControl!.setValue(emptyValue);
+        
+        expect(idTecnicoControl!.errors).toBeTruthy();
+
+
+      })
+    })
+  });
+
 });
