@@ -6,7 +6,7 @@ import { ServiceService } from 'src/app/Service/service.service';
 import { CalculateComponent } from './calculate.component';
 
 
-describe('AddComponent', () => {
+describe('CalculateComponent', () => {
   let component: CalculateComponent;
   let fixture: ComponentFixture<CalculateComponent>;
 
@@ -35,16 +35,21 @@ describe('AddComponent', () => {
   });
 
   describe('[Form validations]', () => {
-    describe('Control "numeroSemana"', () => {
 
-      it('Number of week', () => {
-        const numeroSemanaControl = component.myForms.get('numeroSemana');
-        const weekValue = 5;
-        numeroSemanaControl!.setValue(weekValue);
+    it('Control idTecnico with empty value', () => {
+      const idTecnicoControl = component.myForms.get('idTecnico');
+      const emptyValue = '';
+      idTecnicoControl!.setValue(emptyValue);
+      expect(idTecnicoControl!.errors).toBeTruthy();
+    });
 
-        expect(numeroSemanaControl!.errors?.pattern).toBeNull;
-      })
+    it('Number of week', () => {
+      const numeroSemanaControl = component.myForms.get('numeroSemana');
+      const weekValue = 52;
+      numeroSemanaControl!.setValue(weekValue);
+      expect(numeroSemanaControl!.errors).toBeNull();
     })
+
   });
 
 

@@ -31,16 +31,13 @@ describe('AddComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AddComponent);
     component = fixture.componentInstance;
-    component.ngOnInit();
+    //component.ngOnInit();
     fixture.detectChanges();
   });
 
-  describe('[Component create]', () => {
-    it('should create', () => {
-      expect(component).toBeTruthy;
-    });
-  })
-
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
   describe('[Form validations]', () => {
 
