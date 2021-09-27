@@ -9,7 +9,7 @@
                     <label for="">Id Tecnico</label>
                     <input formControlName="idTecnico" type="text" placeholder="Insert idTecnico" class="form-control">
                 </div>
-                <div class="alert alert-danger" *ngIf="idTecnicoField!.errors && idTecnicoField!.touched">
+                <div class="alert alert-danger" *ngIf="idTecnicoField!.errors && idTecnicoField!.touched" name="a">
                     Campo requerido
                 </div>
 
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" (click)="compareTwoDates()" class="btn btn-danger">Guardar</button>
+                <button type="submit" (click)="compareTwoDates()" class="btn btn-danger" name="guardar">Guardar</button>
             </form>
         </div>
     </div>

@@ -31,25 +31,32 @@ describe('AddComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AddComponent);
     component = fixture.componentInstance;
+    component.ngOnInit();
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy;
-  });
+  describe('[Component create]', () => {
+    it('should create', () => {
+      expect(component).toBeTruthy;
+    });
+  })
+
 
   describe('[Form validations]', () => {
-    describe('Control "idTecnico"', () => {
-      it('Control with empty value', () => {
-        const idTecnicoControl = component.myForm.get('idTecnico');
-        const emptyValue = '';
-        idTecnicoControl!.setValue(emptyValue);
-        
-        expect(idTecnicoControl!.errors).toBeTruthy();
 
+    it('Control idTecnico with empty value', () => {
+      const idTecnicoControl = component.myForm.get('idTecnico');
+      const emptyValue = '';
+      idTecnicoControl!.setValue(emptyValue);
+      expect(idTecnicoControl!.errors).toBeTruthy();
+    });
 
-      })
-    })
-  });
+    it('Control idServicio with empty value', () => {
+      const idServicioControl = component.myForm.get('idServicio');
+      const emptyValue = '';
+      idServicioControl!.setValue(emptyValue);
+      expect(idServicioControl!.errors).toBeTruthy();
+    });
 
+  })
 });

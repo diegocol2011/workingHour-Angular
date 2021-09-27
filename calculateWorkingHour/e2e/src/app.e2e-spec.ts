@@ -1,4 +1,6 @@
-import { browser, logging } from 'protractor';
+import { Console } from 'console';
+import { browser, by, element, logging } from 'protractor';
+import { async } from 'rxjs';
 import { AppPage } from './app.po';
 
 describe('workspace-project App', () => {
@@ -8,10 +10,13 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', async () => {
-    await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('Angular-BySinFloo app is running!');
+  describe('My browser test', function () {
+    it('should have a title', function () {
+      browser.get('http://localhost:4200/');
+      expect(browser.getTitle()).toContain('http://localhost:4200/');
+    });
   });
+
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
@@ -20,4 +25,5 @@ describe('workspace-project App', () => {
       level: logging.Level.SEVERE,
     } as logging.Entry));
   });
+
 });

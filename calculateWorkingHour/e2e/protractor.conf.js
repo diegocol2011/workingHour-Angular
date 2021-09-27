@@ -33,5 +33,11 @@ exports.config = {
         displayStacktrace: StacktraceOption.PRETTY
       }
     }));
-  }
+  },
+
+  seleniumAddress: 'http://localhost:4444/wd/hub',
+
+
+    
+
 };
