@@ -1,6 +1,8 @@
-# AngularBySinFloo
+# workingHour-Angular
+Calculate working hour of employees
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
+## Node_modules
+To construct proyect, please write en CMD. npm update. 
 
 ## Development server
 

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular-BySinFloo": {
+    "calculateWorkingHour": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Angular-BySinFloo",
+            "outputPath": "dist/calculateWorkingHour",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Angular-BySinFloo:build"
+            "browserTarget": "calculateWorkingHour:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Angular-BySinFloo:build:production"
+              "browserTarget": "calculateWorkingHour:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular-BySinFloo:build"
+            "browserTarget": "calculateWorkingHour:build"
           }
         },
         "test": {
@@ -113,16 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Angular-BySinFloo:serve"
+            "devServerTarget": "calculateWorkingHour:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Angular-BySinFloo:serve:production"
+              "devServerTarget": "calculateWorkingHour:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Angular-BySinFloo"
+  "defaultProject": "calculateWorkingHour"
 }
