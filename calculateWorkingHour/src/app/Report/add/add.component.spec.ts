@@ -40,6 +40,7 @@ describe('AddComponent', () => {
   });
 
   describe('[Form validations]', () => {
+    const emptyValue = '';
 
     it('Control idTecnico with empty value', () => {
       const idTecnicoControl = component.myForm.get('idTecnico');
@@ -53,6 +54,34 @@ describe('AddComponent', () => {
       const emptyValue = '';
       idServicioControl!.setValue(emptyValue);
       expect(idServicioControl!.errors).toBeTruthy();
+    });
+
+    it('Control fechaInicio with empty value', () => {
+      const fechaInicioControl = component.myForm.get('fechaInicio');
+      const emptyValue = '';
+      fechaInicioControl!.setValue(emptyValue);
+      expect(fechaInicioControl!.errors).toBeTruthy();
+    });
+
+    it('Control horaInicio with empty value', () => {
+      const horaInicioControl = component.myForm.get('horaInicio');
+      const emptyValue = '';
+      horaInicioControl!.setValue(emptyValue);
+      expect(horaInicioControl!.errors).toBeTruthy();
+    });
+
+    it('Control fechaFin with empty value', () => {
+      const fechaFinControl = component.myForm.get('fechaFin');
+      const emptyValue = '';
+      fechaFinControl!.setValue(emptyValue);
+      expect(fechaFinControl!.errors).toBeTruthy();
+    });
+
+    it('Control horaFin with empty value', () => {
+      const horaFinControl = component.myForm.get('horaFin');
+      const emptyValue = '';
+      horaFinControl!.setValue(emptyValue);
+      expect(horaFinControl!.errors).toBeTruthy();
     });
 
   })
